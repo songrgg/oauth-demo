@@ -36,14 +36,12 @@ class OAuthMiddleware(MiddlewareMixin):
                     return redirect(redirect_uri)
                 return redirect(views.index)
 
-        # clear the session if the session_ids in cookie and session don't match
-        if request.session.get('token', None) is None:
-            self.clear_session(request)
-        else:
+        if request.session.get('token', None) is not None:
             current_user = self.get_current_user(sso_client, request)
             if current_user is not None:
                 return self.get_response(request)
 
+        # remember redirect URI for redirecting to the original URL.
         request.session['redirect_uri'] = request.path
         return sso_client.authorize_redirect(request, settings.OAUTH_CLIENT['redirect_uri'])
 
