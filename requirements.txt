@@ -3,7 +3,7 @@ Authlib==0.14.1
 certifi==2020.4.5.1
 cffi==1.14.0
 chardet==3.0.4
-cryptography==2.9
+cryptography==3.2
 Django==3.0.7
 idna==2.9
 pycparser==2.20
