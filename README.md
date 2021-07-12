@@ -17,3 +17,5 @@ python manage.py runserver
 The OAuth2 configuration is located at settings.py
 
 The default session backend is sqlite3.
+
+For more details of the workflow, please check https://songrgg.github.io/programming/django-oauth-client-setup
